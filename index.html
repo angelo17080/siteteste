@@ -1,74 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> OUTRA PÁGINA</title>
+    <title>PÁGINA INICIAL</title>
     <style>
-        body{
+        /* Zera as margens da página para o banner ir de ponta a ponta */
+        body {
             background-color: #080808;
-            background-image: url(https://zezeviagens.com/wp-content/uploads/2020/07/Bwindi_Impenetrable_Forest.jpg);
-
+            margin: 0;
+            padding: 0;
         }
-        nav a{
-            color: rgb(253, 251, 251);
-            text-decoration: none;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: medium;
-            padding:30px;
-
-        }
-        nav a:hover{
-            color: #00bcd4;
-        }
-        
-        .caixa{
-        background-color: green;
-            padding: 40px;
+       
+        /* Estilo geral da barra principal */
+        .menu-principal {
             display: flex;
-            flex-direction: column;
-            text-align: center;
-            margin: 200px auto auto auto;
-            gap: 15px;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 350px; /* Tamanho máximo ajustado para a caixa */
-            box-sizing: border-box;
+            gap: 20px;
+            background-color: #333;
+            padding: 15px;
+            align-items: center;
+        }
+
+        .menu-principal > a, .drop-btn {
             color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave de fundo */ 
-
-        }
-        button{
-            padding: 1%;
-            border-color: black;
-            border-radius: 9%;
-            cursor: pointer;
-            font-size: 89%;
-            color: rgb(5, 5, 5);
-            background-color: rgb(255, 253, 253);
         }
 
+        /* Container do dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Oculta o sub-menu por padrao */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        /* Estilo dos links do sub-menu */
+        .submenu a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .submenu a:hover {
+            background-color: #555;
+        }
+
+        /* Mostra o sub-menu ao passar o mouse */
+        .dropdown:hover .submenu {
+            display: flex;
+        }
+
+        /* --- ESTILO DO BANNER --- */
+        .banner {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtmDDhn5QBxc7iZ7maEVbNQH_OwoVJCz3jZTxnXdTNHhr693kSzHiT2xE&s=10"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 350px; 
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Estilo para o texto e fundo escuro dentro do banner */
+        .banner-conteudo {
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 20px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+
+.banner-conteudo h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+        }
+
+        .banner-conteudo p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
-    <div class="body">
-    <nav>
-        <a href="/Arquivos de Programas"> MENU</a>
-        <a href="/Users/Public/Desktop/CPUID CPU-Z.lnk "> FOTOS</a>
-        <a href=" https://www.youtube.com/watch?v=NUYvbT6vTPs&pp=ygUcYmlsYWwgZ29yZWdlbiAtIGlldmFuIHBvbGtrYQ%3D%3D"> OUTROS</a>
-    </nav><br><br>
-</div>
-    <form action="macaco.html" method="POST">
-        <div class="caixa">
-            <label> EMAIL</label><br><br>
-            <input type=" email" name="email">
-            <label> SENHA</label>
-            <input type="password" name="senha">
-            <div class="button"><button type="submit"> ENTRAR</button><br></div>
 
+<div class="body">
+    <!-- Navbar fica sozinha no topo -->
+    <nav class="menu-principal">
+        <a href="#">MENU</a>
+        <a href="#">FOTOS</a>
+        
+        <!-- Link que abrirá a barra secundaria (dropdown) -->
+        <div class="dropdown">
+            <a href="#" class="drop-btn">OUTROS ▾</a>
+            <div class="submenu">
+                <a href="#">Subitem 1</a>
+                <a href="#">Subitem 2</a>
+                <a href="#">Subitem 3</a>
+            </div>
         </div>
+    </nav>
 
-    </form>
+    <!-- O banner agora está FORA da nav, ocupando toda a largura logo abaixo -->
+    <div class="banner">
+        <div class="banner-conteudo">
+            <h1>Bem-vindo ao nosso site</h1>
+            <p>Confira as novidades e fotos exclusivas.</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

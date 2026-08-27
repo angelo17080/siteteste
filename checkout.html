@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <style>
+        /* Zera as margens da página */
+        body {
+            background-color: #080808;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+       
+        /* Estilo geral da barra principal (igual à home) */
+        .menu-principal {
+            display: flex;
+            gap: 20px;
+            background-color: #333;
+            padding: 15px;
+            align-items: center;
+        }
+
+        .menu-principal > a, .drop-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-principal > a:hover, .drop-btn:hover {
+            color: #ffcc00;
+        }
+
+        /* Container do dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        .submenu a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .submenu a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .submenu {
+            display: flex;
+        }
+
+        /* Botões de Login e Cadastro na Navbar */
+        .auth-buttons {
+            margin-left: auto; 
+            display: flex; 
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-auth {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 2px solid white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-auth:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        /* --- CONTEÚDO DA PÁGINA DE COMPRA --- */
+        .checkout-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .checkout-titulo {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .checkout-box {
+            background-color: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .checkout-box h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            color: #ffcc00;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #2b2b2b;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #ffcc00;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .resumo-produto {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .resumo-produto img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .btn-finalizar {
+            display: block;
+            width: 100%;
+            background-color: #ffcc00;
+            color: #080808;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+            margin-top: 30px;
+        }
+
+        .btn-finalizar:hover {
+            background-color: #e6b800;
+        }
+
+        .voltar-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .voltar-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="body">
+    <!-- Navbar principal igual à home -->
+    <nav class="menu-principal">
+        <a href="index.html">MENU</a>
+        <a href="#">FOTOS</a>
+        
+        <div class="dropdown">
+            <a href="#" class="drop-btn">OUTROS ▾</a>
+            <div class="submenu">
+                <a href="#">Subitem 1</a>
+                <a href="#">Subitem 2</a>
+                <a href="#">Subitem 3</a>
+            </div>
+        </div>
+
+        <div class="auth-buttons">
+            <a href="login.html" class="btn-auth">LOGIN</a>
+            <a href="cadastro.html" class="btn-auth">CADASTRO</a>
+        </div>
+    </nav>
+
+    <!-- Estrutura do Checkout -->
+    <div class="checkout-container">
+        <h1 class="checkout-titulo">Finalização do Pedido</h1>
+
+        <!-- Resumo do Produto Selecionado -->
+        <div class="checkout-box">
+            <h2>Item Escolhido</h2>
+            <div class="resumo-produto">
+                <img src="imagem.jpg" alt="Produto">
+                <div>
+                    <h3 style="margin: 0 0 5px 0;">Nome do Produto Selecionado</h3>
+                    <p style="margin: 0; color: #ffcc00; font-weight: bold; font-size: 1.2rem;">R$ 79,90</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmação de Dados -->
+        <div class="checkout-box">
+            <h2>1. Confirmação de Dados</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nome Completo:</label>
+                    <input type="text" placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label>E-mail:</label>
+                    <input type="email" placeholder="seu@email.com">
+                </div>
+            </div>
+        </div>
+
+        <!-- Cálculo de CEP / Endereço -->
+        <div class="checkout-box">
+            <h2>2. Endereço de Entrega (CEP)</h2>
+            <div class="form-row">
+                <div class="form-group" style="flex: 0.5;">
+                    <label>CEP:</label>
+                    <input type="text" placeholder="00000-000">
+                </div>
+                <div class="form-group" style="flex: 1.5;">
+                    <label>Endereço:</label>
+                    <input type="text" placeholder="Rua, Número e Bairro">
+                </div>
+            </div>
+        </div>
+
+        <!-- Formas de Pagamento -->
+        <div class="checkout-box">
+            <h2>3. Forma de Pagamento</h2>
+            <div class="form-group">
+                <label>Escolha o método:</label>
+                <select>
+                    <option>Cartão de Crédito</option>
+                    <option>Pix</option>
+                    <option>Boleto Bancário</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Número do Cartão / Chave Pix:</label>
+                <input type="text" placeholder="Insira os dados de pagamento">
+            </div>
+        </div>
+
+        <!-- Botão Finalizar -->
+        <button class="btn-finalizar" onclick="alert('Compra finalizada com sucesso!')">Finalizar Compra</button>
+        <br>
+        <a href="index.html" class="voltar-link">← Voltar para a página inicial</a>
+    </div>
+</div>
+
+</body>
+</html>

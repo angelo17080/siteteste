@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto</title>
+    <style>
+        body {
+            background-color: #080808;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+       
+        .menu-principal {
+            display: flex;
+            gap: 20px;
+            background-color: #333;
+            padding: 15px;
+            align-items: center;
+        }
+
+        .menu-principal > a, .drop-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-principal > a:hover, .drop-btn:hover {
+            color: #ffcc00;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        .submenu a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .submenu a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .submenu {
+            display: flex;
+        }
+
+        .auth-buttons {
+            margin-left: auto; 
+            display: flex; 
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-auth {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 2px solid white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-auth:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        /* --- PÁGINA DE INFORMAÇÕES DO PRODUTO --- */
+        .produto-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            background-color: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .produto-imagem {
+            flex: 1;
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .produto-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .produto-info h1 {
+            font-size: 2rem;
+            margin-top: 0;
+            color: white;
+        }
+
+        .produto-info .preco-box {
+            margin: 20px 0;
+        }
+
+        .preco-antigo {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .preco-atual {
+            color: #ffcc00;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .produto-info p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .btn-ir-checkout {
+            display: block;
+            background-color: #ffcc00;
+            color: #080808;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-ir-checkout:hover {
+            background-color: #e6b800;
+        }
+
+        .voltar-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .voltar-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="body">
+    <nav class="menu-principal">
+        <a href="index.html">MENU</a>
+        <a href="#">FOTOS</a>
+        
+        <div class="dropdown">
+            <a href="#" class="drop-btn">OUTROS ▾</a>
+            <div class="submenu">
+                <a href="#">Subitem 1</a>
+                <a href="#">Subitem 2</a>
+                <a href="#">Subitem 3</a>
+            </div>
+        </div>
+
+        <div class="auth-buttons">
+            <a href="login.html" class="btn-auth">LOGIN</a>
+            <a href="cadastro.html" class="btn-auth">CADASTRO</a>
+        </div>
+    </nav>
+
+    <!-- Detalhes do Produto -->
+    <div class="produto-container">
+        <div class="produto-imagem">
+            <img src="imagem.jpg" alt="Foto do Produto">
+        </div>
+        <div class="produto-info">
+            <div>
+                <h1>Nome do Produto Selecionado</h1>
+                <div class="preco-box">
+                    <span class="preco-antigo">R$ 100,00</span>
+                    <span class="preco-atual">R$ 79,90</span>
+                </div>
+                <p>Esta é a descrição detalhada do produto. Aqui você pode conferir as especificações completas, tamanho, cor e outras informações relevantes para o cliente antes de efetuar a compra.</p>
+            </div>
+            
+            <div>
+                <!-- Vai para a página de checkout que criamos anteriormente -->
+                <a href="checkout.html" class="btn-ir-checkout">Comprar Agora</a>
+                <a href="index.html" class="voltar-link">← Voltar para a página inicial</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
