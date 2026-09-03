@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banco de dados</title>
+         
+    <?php
+$host ="localhost"; //Substitua pelo nome do seu banco de dados
+$db = "db";
+$user = "root";
+$pass ="admin";
+$charset = "utf8mb4";
+
+$dsn = "mysql:host = $host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE           => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE  => PDO::FETCH_ASSOC,
+
+    PDO::ETTR_EMULATE_PREPARES => false,
+
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    echo "Conexão realizada com sucesso!";
+} catch (\PDOException $e) {
+    throw new \PDOException ($e->getMessage(), (int)$e->getCode());
+}
+
+    <style>
+            table{
+            margin: 20px;
+            border-collapse: collapse;
+            width:80%;
+            max-width:600px;
+            font-family: Arial, sans-serif;
+            }
+            table, th, td{
+            border:2px solid #333333;
+            }
+            th, td{
+            padding:12px;
+            text-align:center;
+            }
+            th{
+                background-color: #f2f2f2;
+            }
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>aaaa</th>
+            <th>aaaa</th>
+            <th>aaaa</th>
+
+        </thead>
+    <tbody>
+        <tr>
+            <td>aaaa</td>
+            <td>aaaa</td>
+            <td>aaaa</td>
+        </tr>
+        <tr>
+            <td>aaaa</td>
+            <td>aaaa</td>
+            <td>aaaa</td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>
+<?php
+$host ="localhost"; //Substitua pelo nome do seu banco de dados
+$db = "db";
+$user = "root";
+$pass ="admin";
+$charset = "utf8mb4";
+
+$dsn = "mysql:host = $host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE           => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE  => PDO::FETCH_ASSOC,
+
+    PDO::ETTR_EMULATE_PREPARES => false,
+
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    echo "Conexão realizada com sucesso!";
+} catch (\PDOException $e) {
+    throw new \PDOException ($e->getMessage(), (int)$e->getCode());
+}
+  
